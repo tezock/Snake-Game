@@ -1,0 +1,44 @@
+Planning for Snake Game
+
+
+Classes:
+    -Snake
+    -Snake Node
+    -Scoreboard
+    -Food
+
+Features:
+    -Detect Collisions
+    -Eat food and extend Snake
+    -Track Score
+    -Move Snake
+
+Classes:
+
+    Snake Class (has a snake class node)
+        Attributes:
+            head of the snake
+            tail of the snake
+        Methods:
+            add to snake
+            check for head collision
+
+    Snake Node Class
+        Attributes:
+            position
+            next node
+        Methods:
+            move forward
+
+    Scoreboard Class
+        Attributes:
+            score
+        Methods:
+            increment score
+
+    Food Class
+        Attributes:
+            position
+        Methods:
+            move to new position
+            
