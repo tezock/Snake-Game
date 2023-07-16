@@ -1,4 +1,4 @@
-"""
+
 from turtle import Turtle
 import random
 
@@ -12,7 +12,9 @@ class Food(Turtle):
         self.color("blue")
         self.speed("fastest")
 
+        self.refresh()
+
+    def refresh(self):
         random_x = random.randint(-14, 14) * 20
         random_y = random.randint(-14, 14) * 20
         self.goto(x=random_x, y=random_y)
-"""

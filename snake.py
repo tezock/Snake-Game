@@ -1,6 +1,8 @@
+
 ### Imports ###
 import time
 from turtle import Turtle, Screen
+
 
 
 ### Constants ###
@@ -29,14 +31,13 @@ class Snake:
         
 
     def move(self):
-        segments = self.segments
         
-        time.sleep(0.2)
-        for segment_number in range(len(segments) - 1, 0, -1):
-            new_y = segments[segment_number - 1].ycor()
-            new_x = segments[segment_number - 1].xcor()
-            segments[segment_number].setpos(new_x, new_y)
-        self.head.forward(MOVE_DISTANCE)
+        time.sleep(0.1)
+        for segment_number in range(len(self.segments) - 1, 0, -1):
+            new_y = self.segments[segment_number - 1].ycor()
+            new_x = self.segments[segment_number - 1].xcor()
+            self.segments[segment_number].goto(new_x, new_y)
+        self.segments[0].forward(MOVE_DISTANCE)
 
     def up(self):
         if self.head.heading() != DOWN:
@@ -57,3 +58,13 @@ class Snake:
         if self.head.heading() != RIGHT:
             self.segments[0].setheading(LEFT)
         return
+    
+    def eat(self):
+        new_segment = Turtle(shape="square")
+        new_segment.color("White")
+        new_segment.penup()
+        x = self.segments[-1].xcor()
+        y = self.segments[-1].ycor()
+        new_segment.goto(x, y)
+        self.segments.append(new_segment)
+        
