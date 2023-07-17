@@ -32,7 +32,14 @@ while game_is_on:
         scoreboard.increment_score()
         snake.eat()
 
-    if abs(snake.head.xcor()) > 300 or abs(snake.head.ycor()) > 300:
-        print("out of bounds") 
+    if abs(snake.head.xcor()) > 280 or abs(snake.head.ycor()) > 280:
+        snake.reset()
+        scoreboard.game_over()
+
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10:
+            snake.reset()
+            scoreboard.game_over()
+        
     
 screen.exitonclick()

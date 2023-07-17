@@ -67,4 +67,13 @@ class Snake:
         y = self.segments[-1].ycor()
         new_segment.goto(x, y)
         self.segments.append(new_segment)
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments = []
+        self.create_snake()
+        self.head = self.segments[0]
+
+
         
